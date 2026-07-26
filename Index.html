@@ -1,0 +1,575 @@
+
+<html lang="af">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyala Ridge Eco Lodge | Waterberg Wilderness</title>
+    
+    <!-- FAVICON INTEGRATION -->
+    <link rel="icon" type="image/png" href="Logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #1b281f; 
+            --accent-gold: #c5a059;  
+            --terracotta: #a0522d;   
+            --card-bg: rgba(27, 40, 31, 0.85); 
+            --text-dark: #2c352e;
+            --text-light: #ffffff;
+            --card-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Lato', sans-serif; 
+            color: var(--text-light); 
+            line-height: 1.6; 
+            padding-top: 80px; 
+            background: linear-gradient(rgba(16, 24, 19, 0.75), rgba(16, 24, 19, 0.85)), 
+                        url('Background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--accent-gold); letter-spacing: 1px; }
+        
+        /* NAVIGATION BAR */
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(16, 24, 19, 0.95); padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(197, 160, 89, 0.3); backdrop-filter: blur(5px); }
+        .nav-logo { display: flex; align-items: center; gap: 15px; }
+        .nav-logo img { height: 60px; width: auto; max-width: 180px; object-fit: contain; }
+        .nav-logo-text h2 { color: var(--accent-gold); font-size: 16px; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
+        .nav-logo-text p { color: #aaa; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+
+        .nav-search { display: flex; align-items: center; background: #243529; border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 20px; padding: 5px 15px; margin-left: 10px; }
+        .nav-search input { background: transparent; border: none; color: white; outline: none; font-size: 12px; font-family: 'Lato', sans-serif; width: 110px; }
+        .nav-search button { background: none; border: none; color: var(--accent-gold); cursor: pointer; font-size: 12px; }
+
+        .nav-links { display: flex; gap: 18px; align-items: center; }
+        .nav-links a { color: var(--text-light); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: 0.3s; padding-bottom: 3px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); border-bottom: 1px solid var(--accent-gold); }
+        .menu-toggle { display: none; color: var(--accent-gold); font-size: 28px; background: none; border: none; cursor: pointer; }
+
+        /* HERO HEADER WITH VIDEO */
+        .hero-header { 
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            border-bottom: 1px solid var(--accent-gold);
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.45);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        .hero-header h1 { color: white; font-size: 3rem; letter-spacing: 3px; margin-bottom: 15px; text-transform: uppercase; }
+        .hero-tagline { font-family: 'Playfair Display', serif; font-style: italic; color: #f0e6d2; font-size: 1.3rem; margin-bottom: 25px; line-height: 1.5; }
+        .location-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(27, 40, 31, 0.9); border: 1px solid var(--accent-gold); padding: 8px 20px; border-radius: 30px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #fff; margin-bottom: 25px; }
+
+        /* INTRO STATEMENT DIRECTLY UNDER HERO */
+        .hero-intro-banner {
+            background: rgba(16, 24, 19, 0.95);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 45px 20px;
+            text-align: center;
+        }
+        .award-badge {
+            display: inline-block;
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 6px 20px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            border-radius: 20px;
+            background: rgba(197, 160, 89, 0.1);
+        }
+        .hero-intro-banner p {
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #e0d5c1;
+            line-height: 1.8;
+        }
+        .hero-intro-banner p strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* GENERAL CONTAINERS & BUTTONS */
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        .section-title { text-align: center; font-size: 2.3rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-gold); }
+        .section-subtitle { text-align: center; font-family: 'Playfair Display', serif; font-style: italic; color: #ddd; font-size: 1.2rem; margin-bottom: 50px; }
+        .btn-gold { display: inline-block; text-align: center; background: var(--accent-gold); color: var(--primary-dark); border: 1px solid var(--accent-gold); padding: 14px 32px; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; font-weight: 700; border-radius: 2px; text-decoration: none; cursor: pointer; transition: 0.3s ease; }
+        .btn-gold:hover { background: transparent; color: var(--accent-gold); }
+
+        /* ABOUT US SECTION */
+        .about-section {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 6px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            margin-bottom: 80px;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+        }
+        .about-text { flex: 1 1 400px; }
+        .about-text p { margin-bottom: 15px; color: #ddd; font-size: 0.95rem; font-weight: 300; text-align: justify; }
+        .about-image { flex: 1 1 300px; text-align: center; }
+        .about-image img { width: 100%; max-width: 360px; height: auto; border-radius: 6px; border: 1px solid var(--accent-gold); }
+        
+        .about-highlights {
+            flex: 1 1 220px;
+            background: rgba(16, 24, 19, 0.9);
+            border: 1px solid var(--accent-gold);
+            padding: 25px 20px;
+            border-radius: 4px;
+        }
+        .about-highlights h4 { font-size: 1rem; text-transform: uppercase; border-bottom: 1px solid var(--accent-gold); padding-bottom: 8px; margin-bottom: 15px; text-align: center; }
+        .about-highlights ul { list-style: none; }
+        .about-highlights li { font-size: 0.88rem; color: #eee; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+
+        /* WHY CHOOSE US GRID */
+        .why-us-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .why-card { background: var(--card-bg); border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 6px; overflow: hidden; transition: 0.3s ease; box-shadow: var(--card-shadow); text-align: center; backdrop-filter: blur(10px); }
+        .why-card img { width: 100%; height: 220px; object-fit: cover; }
+        .why-card-content { padding: 30px 25px; }
+        .why-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 15px 35px rgba(197, 160, 89, 0.25); }
+        .why-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--accent-gold); }
+        .why-card p { font-size: 0.92rem; color: #ddd; line-height: 1.7; font-weight: 300; }
+
+        /* FEATURE ICONS BAR */
+        .feature-icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+        .icon-box {
+            background: rgba(27, 40, 31, 0.9);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            transition: 0.3s ease;
+        }
+        .icon-box:hover { border-color: var(--accent-gold); transform: translateY(-3px); }
+        .icon-box span { font-size: 2rem; display: block; margin-bottom: 8px; }
+        .icon-box h4 { font-size: 0.95rem; letter-spacing: 1px; color: #fff; font-family: 'Lato', sans-serif; text-transform: uppercase; }
+
+        /* GALLERY SECTION */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(11, 17, 13, 0.9));
+            padding: 15px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        /* STATISTICS SECTION */
+        .stats-section {
+            background: rgba(16, 24, 19, 0.92);
+            border: 1px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 50px 20px;
+            margin-bottom: 80px;
+            box-shadow: var(--card-shadow);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .stat-card h3 { font-size: 3rem; color: var(--accent-gold); margin-bottom: 5px; font-family: 'Playfair Display', serif; }
+        .stat-card p { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: #ccc; }
+
+        /* MENU PREVIEW BANNER */
+        .menu-preview-box { background: rgba(16, 24, 19, 0.92); color: white; border: 1px solid var(--accent-gold); border-radius: 6px; padding: 50px 30px; text-align: center; margin-bottom: 80px; box-shadow: var(--card-shadow); backdrop-filter: blur(10px); }
+        .menu-preview-box h3 { color: var(--accent-gold); font-size: 2rem; margin-bottom: 10px; }
+        .menu-preview-box p.subtitle { font-style: italic; font-family: 'Playfair Display', serif; color: #ccc; margin-bottom: 30px; }
+        .menu-courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 35px; text-align: left; }
+        .course-item { background: rgba(255,255,255,0.05); border-left: 3px solid var(--accent-gold); padding: 20px; border-radius: 2px; }
+        .course-item h4 { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 8px; }
+        .course-item p { font-size: 0.88rem; color: #ddd; }
+
+        /* MAP & LOCATION SECTION */
+        .location-section { display: flex; gap: 40px; flex-wrap: wrap; background: var(--card-bg); padding: 40px; border-radius: 6px; border: 1px solid rgba(197, 160, 89, 0.3); align-items: center; box-shadow: var(--card-shadow); backdrop-filter: blur(10px); }
+        .location-info { flex: 1 1 400px; }
+        .location-info h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-gold); }
+        .location-info p { color: #ddd; margin-bottom: 20px; font-size: 0.95rem; }
+        .map-wrapper { flex: 1 1 450px; height: 320px; border-radius: 4px; overflow: hidden; border: 1px solid var(--accent-gold); }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
+
+        /* FLOATING CHATBOT BUTTON */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #1b281f; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 9999; transition: all 0.3s ease; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+        .whatsapp-float:hover { background-color: var(--accent-gold); color: var(--primary-dark); transform: scale(1.05); }
+
+        /* FOOTER */
+        footer { background-color: #0b110d; color: #888; text-align: center; padding: 60px 20px 30px 20px; font-size: 0.9rem; border-top: 1px solid rgba(197, 160, 89, 0.2); }
+        .footer-logo { max-height: 80px; width: auto; margin-bottom: 15px; }
+        footer h2 { color: var(--accent-gold); font-size: 1.6rem; letter-spacing: 4px; margin-bottom: 5px; font-weight: 400; }
+        footer p.tagline { color: #aaa; font-style: italic; font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+        
+        .footer-details { max-width: 600px; margin: 0 auto 25px auto; font-size: 0.88rem; color: #ccc; line-height: 1.8; }
+        .footer-socials { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
+        .footer-socials a { color: var(--accent-gold); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+        .footer-socials a:hover { color: #fff; }
+
+        @media (max-width: 992px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background-color: #101813; padding: 30px 0; text-align: center; gap: 20px; border-bottom: 1px solid var(--accent-gold); }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero-header h1 { font-size: 2.1rem; }
+            .nav-search { margin-top: 10px; width: 80%; }
+            .about-section { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="index.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+                <img src="Logo.png" alt="Nyala Ridge Eco Lodge Logo">
+                <div class="nav-logo-text">
+                    <h2>Nyala Ridge</h2>
+                    <p>Eco Lodge</p>
+                </div>
+            </a>
+        </div>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <div class="nav-links" id="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="price_list.html">Accommodation & Menu</a>
+            <a href="packages.html">Packages & Experiences</a>
+            <a href="sustainability.html">Sustainability</a>
+            <a href="team.html">Staff Information</a>
+            <a href="logbook.html">Reviews</a>
+            <a href="gallery.html">Social</a>
+            
+            <form class="nav-search" onsubmit="handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Search..." required>
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER WITH VIDEO -->
+<header class="hero-header">
+    <video class="hero-video" autoplay loop muted playsinline>
+        <source src="Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-content">
+        <div class="location-badge">📍 Waterberg Region, Limpopo, South Africa</div>
+        <h1>Luxury Eco-Living in the Heart of the Waterberg</h1>
+        <p class="hero-tagline">"Discover an exclusive off-grid safari retreat where luxury, conservation and authentic African hospitality come together."</p>
+        <a href="price_list.html" class="btn-gold">Explore Rooms & Dining</a>
+    </div>
+</header>
+
+    <!-- INTRO STATEMENT DIRECTLY UNDER HERO -->
+    <section class="hero-intro-banner">
+        <span class="award-badge">🏆 Award-Winning Eco-Tourism Destination</span>
+        <p>
+            Experience <strong>luxury accommodation</strong>, <strong>exceptional wildlife encounters</strong> and <strong>sustainable hospitality</strong> in one unforgettable destination in the Waterberg Biosphere.
+        </p>
+    </section>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="container">
+
+        <!-- ABOUT US SECTION -->
+        <h2 class="section-title">About Us</h2>
+        <p class="section-subtitle">Est. 2026 • Waterberg, Limpopo, South Africa</p>
+
+        <div class="about-section">
+            <div class="about-text">
+                <p>Established in 2026, Nyala Ridge Eco Lodge is a luxury eco-lodge nestled in the heart of the Waterberg Biosphere, Limpopo. Surrounded by unspoiled bushveld, breathtaking ridges, and diverse wildlife, our lodge offers guests an authentic African wilderness experience while remaining committed to sustainable tourism and conservation.</p>
+                <p>The lodge takes its name from the large population of free-roaming nyala that inhabit the property. These elegant antelope are frequently seen grazing through the valleys, browsing beneath the ancient trees, and gathering around natural waterholes, making them one of the area's most iconic wildlife species.</p>
+                <p>At Nyala Ridge Eco Lodge, we believe that luxury and conservation go hand in hand. Every aspect of the lodge has been designed to minimise our environmental footprint while providing exceptional comfort.</p>
+            </div>
+            
+            <div class="about-image">
+                <img src="Nyala.jpg" alt="Nyala Antelope Ram in Waterberg">
+            </div>
+
+            <div class="about-highlights">
+                <h4>Quick Facts</h4>
+                <ul>
+                    <li>EST. 2026</li>
+                    <li>📍 Waterberg, Limpopo</li>
+                    <li>🌿 100% Solar Powered</li>
+                    <li>🦌 Home to 200+ Nyala</li>
+                    <li>🐘 Big Five Area Nearby</li>
+                    <li>💧 Natural Spring Water</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- THE NYALA RIDGE EXPERIENCE SECTION -->
+        <h2 class="section-title">The Nyala Ridge Experience</h2>
+        <p class="section-subtitle">Why discerning travelers choose Nyala Ridge Eco Lodge</p>
+
+        <div class="why-us-grid">
+            <div class="why-card">
+                <img src="image1.jpg" alt="Luxury Off-Grid Suite with Pool">
+                <div class="why-card-content">
+                    <h3>Luxury Off-Grid Living</h3>
+                    <p>Nestled in the malaria-free Waterberg wilderness. Our lodge features luxury suites with private plunge pools and roof solar integration, running completely off-grid with panoramic views over the Waterberg ridges.</p>
+                </div>
+            </div>
+
+            <div class="why-card">
+                <img src="image2.jpg" alt="Free-roaming Nyala Ram">
+                <div class="why-card-content">
+                    <h3>Where the Nyala Roam</h3>
+                    <p>Nyala Ridge Eco Lodge derives its name from the exceptional number of free-roaming nyala found throughout the reserve. Guests frequently encounter these magnificent antelope while exploring the valleys, ridges and natural waterholes.</p>
+                </div>
+            </div>
+
+            <div class="why-card">
+                <img src="image3.jpg" alt="Bushveld Fine Dining Boma">
+                <div class="why-card-content">
+                    <h3>Bushveld Fine Dining</h3>
+                    <p>Every meal celebrates the flavours of Limpopo. Fresh produce is sourced from local farmers, our organic gardens and sustainable suppliers, creating an unforgettable farm-to-table dining experience beneath the African stars.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 FEATURE ICONS -->
+        <div class="feature-icons-grid">
+            <div class="icon-box">
+                <span>🌿</span>
+                <h4>Solar Powered</h4>
+            </div>
+            <div class="icon-box">
+                <span>🦌</span>
+                <h4>Wildlife Safaris</h4>
+            </div>
+            <div class="icon-box">
+                <span>🍷</span>
+                <h4>Fine Dining</h4>
+            </div>
+            <div class="icon-box">
+                <span>🔥</span>
+                <h4>Traditional Boma</h4>
+            </div>
+        </div>
+
+        <!-- GALLERY SECTION -->
+        <h2 class="section-title">Wilderness Gallery</h2>
+        <p class="section-subtitle">A glimpse into life at Nyala Ridge</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="image4.jpg" alt="Nyala Antelope">
+                <div class="gallery-caption">Free-Roaming Nyala</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Background.jpg" alt="Lodge Main Building">
+                <div class="gallery-caption">Main Eco Lodge</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image5.jpg" alt="Plunge Pool">
+                <div class="gallery-caption">Infinity Plunge Pool</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image6.jpg" alt="Boma Fire">
+                <div class="gallery-caption">Boma Evenings</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image7.jpg" alt="Waterberg Sunset">
+                <div class="gallery-caption">Waterberg Sunset</div>
+            </div>
+            <div class="gallery-item">
+                <img src="image8.jpg" alt="Luxury Room">
+                <div class="gallery-caption">Luxury Suite Interior</div>
+            </div>
+        </div>
+
+        <!-- STATISTICS SECTION -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>4500 ha</h3>
+                    <p>Nature Reserve</p>
+                </div>
+                <div class="stat-card">
+                    <h3>250+</h3>
+                    <p>Bird Species</p>
+                </div>
+                <div class="stat-card">
+                    <h3>40+</h3>
+                    <p>Mammal Species</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Solar Powered</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESTAURANT & MENU FEATURE HIGHLIGHT -->
+        <div class="menu-preview-box">
+            <h3>Nyala Ridge Boma Menu</h3>
+            <p class="subtitle">A taste of our signature "Farm-to-Table" Bushveld dining experience</p>
+            
+            <div class="menu-courses">
+                <div class="course-item">
+                    <h4>Starter</h4>
+                    <p>Bushveld Pumpkin Soup served with freshly baked potbrood and local herb butter.</p>
+                </div>
+                <div class="course-item">
+                    <h4>Main Course</h4>
+                    <p>Slow-roasted free-range Kudu Fillet with wild berry reduction, truffle pap, and garden vegetables.</p>
+                </div>
+                <div class="course-item">
+                    <h4>Dessert & Drinks</h4>
+                    <p>Traditional Milk Tart Panna Cotta with fynbos honey drizzle & our signature craft Mopani Gin.</p>
+                </div>
+            </div>
+
+            <a href="price_list.html" class="btn-gold">View Full Menu & Rates</a>
+        </div>
+
+        <!-- LOCATION & GOOGLE MAP INTEGRATION -->
+        <h2 class="section-title">Our Location</h2>
+        <p class="section-subtitle">Deep within the malaria-free Waterberg Reserve</p>
+
+        <div class="location-section">
+            <div class="location-info">
+                <h3>Getting to Nyala Ridge</h3>
+                <p>Located just a 3-hour scenic drive north of Johannesburg, Nyala Ridge lies in the pristine Waterberg biosphere of Limpopo, South Africa.</p>
+                <p><strong>Coordinates:</strong> -24.2500, 28.3333<br>
+                <strong>Nearest Airstrip:</strong> Vaalwater Private Airstrip (20 mins away)</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-gold" style="margin-top: 10px;">Get Directions</a>
+            </div>
+            
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.3421113200746!2d28.3200!3d-24.2500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDE1JzAwLjAiUyAyOMKwMTknMTIuMCJF!5e0!3m2!1sen!2sza!4v1625000000000!5m2!1sen!2sza" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FLOATING CHATBOT -->
+    <a href="https://wa.me/27820000000?text=Hello,%20I%20would%20like%20to%20inquire%20about%20a%20stay%20at%20Nyala%20Ridge%20Eco%20Lodge." class="whatsapp-float" target="_blank">
+        <span>💬</span> Eco-Concierge Chat
+    </a>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="Logo.png" alt="Nyala Ridge Eco Lodge Logo" class="footer-logo">
+        <h2>NYALA RIDGE ECO LODGE</h2>
+        <p class="tagline">Est. 2026 • Waterberg Biosphere, Limpopo, South Africa</p>
+        
+        <div class="footer-details">
+            <p><strong>Luxury • Conservation • Sustainability</strong></p>
+            <p>📞 +27 82 000 0000 &nbsp;|&nbsp; ✉️ info@nyalaridge.co.za</p>
+        </div>
+
+        <div class="footer-socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+        </div>
+
+        <p style="margin-top: 20px; font-size: 0.78rem; color: #555; letter-spacing: 1px;">
+            © 2026 Nyala Ridge Eco Lodge. Handcrafted with absolute precision. | Patron: Tihard Strydom
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("nav-links");
+            nav.classList.toggle("active");
+        }
+
+        function handleSearch(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (query.includes('home') || query.includes('index')) {
+                window.location.href = 'index.html';
+            } else if (query.includes('accommodation') || query.includes('menu') || query.includes('room') || query.includes('rate') || query.includes('price')) {
+                window.location.href = 'price_list.html';
+            } else if (query.includes('package') || query.includes('experience') || query.includes('safari') || query.includes('activity')) {
+                window.location.href = 'packages.html';
+            } else if (query.includes('sustainability') || query.includes('solar') || query.includes('green') || query.includes('rules')) {
+                window.location.href = 'sustainability.html';
+            } else if (query.includes('staff') || query.includes('team') || query.includes('member') || query.includes('group')) {
+                window.location.href = 'team.html';
+            } else if (query.includes('review') || query.includes('rating') || query.includes('guest')) {
+                window.location.href = 'logbook.html';
+            } else if (query.includes('social') || query.includes('photo') || query.includes('gallery') || query.includes('media')) {
+                window.location.href = 'gallery.html';
+            } else {
+                alert('Searching for: "' + query + '"...\nRedirecting to Packages & Experiences...');
+                window.location.href = 'packages.html';
+            }
+        }
+    </script>
+</body>
+</html>
