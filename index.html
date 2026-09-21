@@ -10,13 +10,13 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --primary-dark: #1b281f; 
             --accent-gold: #c5a059;  
-            --terracotta: #a0522d;   
+            --terracotta: #a0522d;    
             --card-bg: rgba(27, 40, 31, 0.85); 
             --text-dark: #2c352e;
             --text-light: #ffffff;
@@ -310,20 +310,43 @@
         </div>
     </nav>
 
-    <!-- HERO HEADER WITH VIDEO -->
-<header class="hero-header">
-    <video class="hero-video" autoplay loop muted playsinline>
-        <source src="Video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <header class="hero-header">
+        <video id="heroVideo" class="hero-video" autoplay loop muted playsinline>
+            <source src="Video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-    <div class="hero-content">
-        <div class="location-badge">📍 Waterberg Region, Limpopo, South Africa</div>
-        <h1>Luxury Eco-Living in the Heart of the Waterberg</h1>
-        <p class="hero-tagline">"Discover an exclusive off-grid safari retreat where luxury, conservation and authentic African hospitality come together."</p>
-        <a href="price_list.html" class="btn-gold">Explore Rooms & Dining</a>
-    </div>
-</header>
+        <div class="hero-content">
+            <div class="location-badge">📍 Waterberg Region, Limpopo, South Africa</div>
+            <h1>Luxury Eco-Living in the Heart of the Waterberg</h1>
+            <p class="hero-tagline">"Discover an exclusive off-grid safari retreat where luxury, conservation and authentic African hospitality come together."</p>
+            <a href="price_list.html" class="btn-gold">Explore Rooms & Dining</a>
+        </div>
+    </header>
+
+    <script>
+        // Laat die video op 2 sekondes begin sodra metadata gelaai is
+        document.getElementById('heroVideo').addEventListener('loadedmetadata', function() {
+            this.currentTime = 2;
+        });
+
+        function toggleMenu() {
+            var nav = document.getElementById("nav-links");
+            nav.classList.toggle("active");
+        }
+
+        function handleSearch(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (query.includes('accommodation') || query.includes('room')) {
+                window.location.href = 'price_list.html';
+            } else if (query.includes('package') || query.includes('safari')) {
+                window.location.href = 'packages.html';
+            } else {
+                window.location.href = 'packages.html';
+            }
+        }
+    </script>
 
     <!-- INTRO STATEMENT DIRECTLY UNDER HERO -->
     <section class="hero-intro-banner">
@@ -531,16 +554,19 @@
         </div>
 
         <div class="footer-socials">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">TikTok</a>
+            <a href="https://www.instagram.com/nyala_ridge_eco_lodge?igsh=MW5hNTU1dXhxczZsZQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/share/1KejukP773/?mibextid=wwXIfr" target="_blank">Facebook</a>
         </div>
 
-        <p style="margin-top: 20px; font-size: 0.78rem; color: #555; letter-spacing: 1px;">
-            © 2026 Nyala Ridge Eco Lodge. Handcrafted with absolute precision. | Patron: Tihard Strydom
+        <!-- Fictional Notice -->
+        <p style="margin-top: 15px; font-size: 0.8rem; color: var(--accent-gold); font-style: italic; letter-spacing: 0.5px;">
+            *Note: Nyala Ridge Eco Lodge is a fictional concept created for portfolio and project demonstration purposes.
+        </p>
+
+        <p style="margin-top: 15px; font-size: 0.78rem; color: #555; letter-spacing: 1px;">
+            © 2026 Nyala Ridge Eco Lodge. Handcrafted with absolute precision. | Patron: Tihard Strydom (56236328)
         </p>
     </footer>
-
     <script>
         function toggleMenu() {
             var nav = document.getElementById("nav-links");

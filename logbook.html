@@ -53,7 +53,7 @@
         .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); border-bottom: 1px solid var(--accent-gold); }
         .menu-toggle { display: none; color: var(--accent-gold); font-size: 28px; background: none; border: none; cursor: pointer; }
 
-        /* HERO HEADER (IMAGE BASED) */
+        /* HERO HEADER */
         .hero-header { 
             position: relative;
             height: 50vh;
@@ -98,7 +98,7 @@
             gap: 20px;
         }
         .stat-box h3 { font-size: 2.5rem; color: var(--accent-gold); }
-        .stat-box p { font-size: 0.85srem; text-transform: uppercase; letter-spacing: 2px; color: #ccc; }
+        .stat-box p { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #ccc; }
 
         .reviews-grid {
             display: grid;
@@ -153,9 +153,52 @@
         .form-group { margin-bottom: 20px; }
         .form-group.full { grid-column: span 2; }
         .form-group label { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-gold); margin-bottom: 8px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(197, 160, 89, 0.3); padding: 12px 15px; color: #fff; font-family: 'Lato', sans-serif; border-radius: 2px; outline: none; transition: 0.3s; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent-gold); background: rgba(255, 255, 255, 0.08); }
+        
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(197, 160, 89, 0.3); 
+            padding: 12px 15px; 
+            color: #fff; 
+            font-family: 'Lato', sans-serif; 
+            border-radius: 2px; 
+            outline: none; 
+            transition: 0.3s; 
+        }
+
+        /* VASTE DONKER AGTERGROND VIR DIE SELECT EN SY OPSIES */
+        .form-group select { 
+            width: 100%; 
+            background: #141f18 !important; 
+            border: 1px solid rgba(197, 160, 89, 0.4); 
+            padding: 12px 15px; 
+            color: #ffffff !important; 
+            font-family: 'Lato', sans-serif; 
+            border-radius: 2px; 
+            outline: none; 
+            transition: 0.3s; 
+        }
+
+        .form-group select option {
+            background-color: #141f18 !important;
+            color: #ffffff !important;
+            padding: 12px;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
+            border-color: var(--accent-gold); 
+            background: rgba(255, 255, 255, 0.08); 
+        }
+
+        .form-group select:focus {
+            background: #141f18 !important;
+            color: #ffffff !important;
+        }
+
         .form-group textarea { resize: vertical; height: 130px; }
+        
+        .btn-gold { background-color: var(--accent-gold); color: var(--primary-dark); border: none; padding: 12px 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; border-radius: 2px; }
+        .btn-gold:hover { background-color: #fff; color: var(--primary-dark); }
 
         /* FLOATING CHATBOT BUTTON */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #1b281f; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 9999; transition: all 0.3s ease; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
@@ -352,14 +395,19 @@
                             <option value="Waterberg Valley Villa">Waterberg Valley Villa</option>
                             <option value="Bushveld Executive Suite">Bushveld Executive Suite</option>
                             <option value="Exclusive Lodge Buyout">Exclusive Lodge Buyout</option>
+                            <option value="Nyala Tented Camp">Nyala Tented Camp</option>
+                            <option value="Hunters Rest Chalet">Hunters Rest Chalet</option>
+                            <option value="Panorama Lookout Suite">Panorama Lookout Suite</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="ratingScore">Rating</label>
                         <select id="ratingScore">
-                            <option value="★★★★★">5 Stars (Exceptional)</option>
-                            <option value="★★★★☆">4 Stars (Wonderful)</option>
-                            <option value="★★★☆☆">3 Stars (Good)</option>
+                            <option value="★★★★★">★★★★★ (5 Stars - Exceptional)</option>
+                            <option value="★★★★☆">★★★★☆ (4 Stars - Wonderful)</option>
+                            <option value="★★★☆☆">★★★☆☆ (3 Stars - Good)</option>
+                            <option value="★★☆☆☆">★★☆☆☆ (2 Stars - Fair)</option>
+                            <option value="★☆☆☆☆">★☆☆☆☆ (1 Star - Poor)</option>
                         </select>
                     </div>
                 </div>
@@ -382,7 +430,6 @@
         <span>💬</span> Eco-Concierge Chat
     </a>
 
-    <!-- FOOTER -->
     <footer>
         <img src="Logo.png" alt="Nyala Ridge Eco Lodge Logo" class="footer-logo">
         <h2>NYALA RIDGE ECO LODGE</h2>
@@ -394,13 +441,16 @@
         </div>
 
         <div class="footer-socials">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">TikTok</a>
+            <a href="https://www.instagram.com/nyala_ridge_eco_lodge?igsh=MW5hNTU1dXhxczZsZQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/share/1KejukP773/?mibextid=wwXIfr" target="_blank">Facebook</a>
         </div>
 
-        <p style="margin-top: 20px; font-size: 0.78rem; color: #555; letter-spacing: 1px;">
-            © 2026 Nyala Ridge Eco Lodge. Handcrafted with absolute precision. | Patron: Tihard Strydom
+        <p style="margin-top: 15px; font-size: 0.8rem; color: var(--accent-gold); font-style: italic; letter-spacing: 0.5px;">
+            *Note: Nyala Ridge Eco Lodge is a fictional concept created for portfolio and project demonstration purposes.
+        </p>
+
+        <p style="margin-top: 15px; font-size: 0.78rem; color: #555; letter-spacing: 1px;">
+            © 2026 Nyala Ridge Eco Lodge. Handcrafted with absolute precision. | Patron: Tihard Strydom (56236328)
         </p>
     </footer>
 
@@ -430,7 +480,7 @@
                             <div class="reviewer-name">${name}</div>
                             <div class="review-date">${date}</div>
                         </div>
-                        <div class="stars">${rating}</div>
+                        <div class="stars">${rating.substring(0, 5)}</div>
                     </div>
                     <p class="review-body">"${comment}"</p>
                 </div>
