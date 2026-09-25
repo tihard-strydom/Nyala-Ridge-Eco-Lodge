@@ -128,7 +128,7 @@
             line-height: 1.6;
         }
 
-        /* SINGLE REEL / VIDEO SECTION */
+        /* LANDSCAPE REEL / VIDEO SECTION */
         .reels-section {
             background: rgba(16, 24, 19, 0.92);
             border: 1px solid var(--accent-gold);
@@ -140,12 +140,13 @@
             text-align: center;
         }
         .single-reel-wrapper {
-            max-width: 450px;
+            max-width: 800px;
             margin: 30px auto 0 auto;
         }
         .reel-box {
             position: relative;
-            height: 550px;
+            width: 100%;
+            aspect-ratio: 16 / 9;
             background: #101813;
             border-radius: 4px;
             overflow: hidden;
@@ -155,22 +156,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        .reel-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(11, 17, 13, 0.95));
-            padding: 25px;
-            text-align: left;
-        }
-        .reel-overlay h4 {
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        .reel-overlay p {
-            font-size: 0.9rem;
-            color: #ccc;
         }
 
         /* INTERACTIVE CHATBOT SECTION */
@@ -350,21 +335,17 @@
             </div>
         </div>
 
-        <!-- SINGLE REEL / VIDEO HIGHLIGHT SECTION -->
+        <!-- LANDSCAPE REEL / VIDEO HIGHLIGHT SECTION -->
         <div class="reels-section">
-            <h2 class="section-title">Bushveld Reel</h2>
-            <p class="section-subtitle">A short cinematic look into life at Nyala Ridge</p>
+            <h2 class="section-title">Experience Nyala Ridge</h2>
+            <p class="section-subtitle">A visual journey from arrival to the ultimate safari drive</p>
 
             <div class="single-reel-wrapper">
                 <div class="reel-box">
-                    <video autoplay loop muted playsinline>
-                        <source src="Video.mp4" type="video/mp4">
+                    <video controls autoplay loop playsinline>
+                        <source src="Video2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="reel-overlay">
-                        <h4>Sunrise over the Ridges</h4>
-                        <p>Waking up off-grid in the pristine Waterberg wilderness.</p>
-                    </div>
                 </div>
             </div>
         </div>
